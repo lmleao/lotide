@@ -8,11 +8,6 @@ const assertEqual = function(actual, expected) {
 
 //Function that should return tail of an array without modifying the original array
 const tail = function(array) {
-  //Establish conditions that will return an empty array
-  //(e.g. array only has 1 element, or is empty)
-  if (array.length === 1 || array.length === 0) {
-    return [];
-  }
   return array.slice(1);
 };
 
@@ -26,3 +21,7 @@ const result = tail(["Hello", "Lighthouse", "Labs"]);
 assertEqual(result.length, 2); // ensure we get back two elements
 assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
 assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+
+//Test Case: Check if function returns empty array
+assertEqual(tail(["test"]).length, 0); // tail of array with one element only should be empty
+assertEqual(tail([]).length, 0); // tail of an empty array should also be empty
