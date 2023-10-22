@@ -18,12 +18,13 @@ const eqArrays = function(arr1, arr2) {
 
 //Implement assertArraysEqual function
 //It should take the results from eqArrays and log an appropriate message
-const assertArraysEqual = function(arg) {
-  if (!arg) {
-    console.log(`❌❌❌ Assertion failed! Arrays are not equal.`);
+const assertArraysEqual = function(array1, array2) {
+  if (!eqArrays(array1, array2)) {
+    console.log(`❌❌❌ Assertion failed! ${array1} is not equal to ${array2}.`);
   } else {
-    console.log(`✅✅✅ Assertion passed! Arrays are equal.`);
+    console.log(`✅✅✅ Assertion passed! ${array1} is equal to ${array2}`);
   }
 };
 
-//assertArraysEqual(eqArrays([1, 2, 3], [1, 2, 3]), true); => should PASS
+assertArraysEqual([1, 2, 3], [1, 2, 3]); //should PASS
+assertArraysEqual([1, 3, 2], [1, 4, 3]); //should FAIL
