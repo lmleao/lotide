@@ -26,6 +26,9 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
+// The without function makes a new array when provided with
+// two arrays passed as arguments, the first serving as the source array
+// and the second serving as the items to be removed from the source array.
 const without = function(source, itemsToRemove) {
   //Check if condition matches
   //Make new array without items to be removed
@@ -42,12 +45,13 @@ const without = function(source, itemsToRemove) {
 console.log(without([1, 2, 3], [1])); // => [2, 3]
 console.log(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
 
+// Test Cases: Checks if the returned element arrays are correct
 assertArraysEqual(without([1, 2, 3], [1]), [2, 3]); // should PASS
 assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]); // should PASS
 assertArraysEqual(without([1, 3, 4], [1, 4, 6, 7]), [3]); // should PASS
 assertArraysEqual(without([1, 2, 3], []), [1, 2, 3]); // should PASS
 
-
+// Test Case: Checks if the original array has been modified by the without function
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]); // no need to capture return value for this test case
 // Make sure the original array was not altered by the without function
