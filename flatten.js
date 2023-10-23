@@ -29,23 +29,20 @@ const assertArraysEqual = function(array1, array2) {
 //Function that when given an array with other arrays inside, will flatten them
 //into a single-level array
 const flatten = function(array) {
-  //Loop through the objects in the outer array
-  //If the object is an array, create another loop
-  //Convert objects into numbers
-  //Add results to an empty array?
   let newArray = [];
   
+  //Loop through objects in the outer array
   for (let i = 0; i < array.length; i++) {
-    if (Array.isArray(array[i])) {
+    if (Array.isArray(array[i])) { //If object is an array, create another loop
       for (let n = 0; n < array[i].length; n++) {
-        newArray.push(Number(array[i][n]));
+        newArray.push(Number(array[i][n])); //Convert the objects into numbers
       }
     } else {
-      newArray.push(array[i]);
+      newArray.push(array[i]); //Add results to newArray
     }
   }
   return newArray;
 };
 
-console.log(flatten([1, 2, [3, 4], 5, [6]]));
+//Test Case: Make sure function is working as expected by comparing the arrays
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
