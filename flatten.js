@@ -35,7 +35,7 @@ const flatten = function(array) {
   for (let i = 0; i < array.length; i++) {
     if (Array.isArray(array[i])) { //If object is an array, create another loop
       for (let n = 0; n < array[i].length; n++) {
-        newArray.push(Number(array[i][n])); //Convert the objects into numbers
+        newArray.push(array[i][n]); //Add nested elements to newArray
       }
     } else {
       newArray.push(array[i]); //Add results to newArray
