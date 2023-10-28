@@ -20,9 +20,6 @@ const countLetters = function(string) {
   return result;
 };
 
-console.log(countLetters('LHL'));
-console.log(countLetters('lighthouse labs'));
-
 const result1 = countLetters('LHL');
 const result2 = countLetters('lighthouse labs');
 
