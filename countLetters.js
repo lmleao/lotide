@@ -22,3 +22,12 @@ const countLetters = function(string) {
 
 console.log(countLetters('LHL'));
 console.log(countLetters('lighthouse labs'));
+
+const result1 = countLetters('LHL');
+const result2 = countLetters('lighthouse labs');
+
+//Test cases
+assertEqual(result1["L"], 2);
+assertEqual(result2["h"], 2);
+assertEqual(result1[" "], undefined);
+assertEqual(result2["r"], undefined);
