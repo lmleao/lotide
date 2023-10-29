@@ -48,3 +48,4 @@ const assertObjectsEqual = function(actual, expected) {
 };
 
 assertObjectsEqual({ color: "red", size: "medium" }, { color: "red", size: "medium"});
+assertObjectsEqual({ color: "pink", items: 20 }, { color: "pink", items: 20 });
