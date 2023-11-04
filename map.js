@@ -32,9 +32,6 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
-const results1 = map(words, word => word[0]);
-console.log(results1);
-
 assertArraysEqual(map(words, word => word[0]), ['g', 'c', 't', 'm', 't']);
 assertArraysEqual(map(words, word => word[2]), ['o', 'n', undefined, 'j', 'm']);
 assertArraysEqual(map(words, word => word[1]), ['r', 'o', 'o', 'a', 'o']);
