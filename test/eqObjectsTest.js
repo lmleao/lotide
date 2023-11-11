@@ -19,4 +19,8 @@ describe("#eqObjects", () => {
     const anotherMultiColorShirtObject = { size: "medium", colors: ["red", "blue"] };
     assert.deepEqual(eqObjects(multiColorShirtObject, anotherMultiColorShirtObject), true);
   });
+
+  it("works with nested objects", () => {
+    assert.deepEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+  });
 });
