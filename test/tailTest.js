@@ -1,17 +1,30 @@
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 const tail = require('../tail');
 
-// Test Case: Check the original array
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3); // original array should still have 3 elements!
+describe("#tail", () => {
+  it("doesn't alter original array", () => {
+    const words = ["Yo Yo", "Lighthouse", "Labs"];
+    tail(words);
+    assert.strictEqual(words.length, 3);
+  });
 
-// Test Case: Check the returned array elements
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-assertEqual(result.length, 2); // ensure we get back two elements
-assertEqual(result[0], "Lighthouse"); // ensure first element is "Lighthouse"
-assertEqual(result[1], "Labs"); // ensure second element is "Labs"
+  it("returns appropriate amount of elements", () => {
+    assert.strictEqual(tail(["Hello", "Lighthouse", "Labs"]).length, 2);
+  });
 
-//Test Case: Check if function returns empty array
-assertEqual(tail(["test"]).length, 0); // tail of array with one element only should be empty
-assertEqual(tail([]).length, 0); // tail of an empty array should also be empty
+  it("returns Lighthouse as first element", () => {
+    assert.strictEqual(tail(["Hello", "Lighthouse", "Labs"])[0], "Lighthouse");
+  });
+
+  it("returns Labs as second element", () => {
+    assert.strictEqual(tail(["Hello", "Lighthouse", "Labs"])[1], "Labs");
+  });
+
+  it("returns empty array if original array only has one element", () => {
+    assert.strictEqual(tail(["test"]).length, 0);
+  });
+
+  it("returns empty array if original array is empty", () => {
+    assert.strictEqual(tail([]).length, 0);
+  });
+});
