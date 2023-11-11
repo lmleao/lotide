@@ -11,13 +11,12 @@ const eqObjects = function(object1, object2) {
   }
 
   for (let key of objKeys1) {
-    if (typeof object1[key] === 'object' && typeof object2[key] === 'object') {
-      // If both values are objects, recursively call eqObjects
-      if (!eqObjects(object1[key], object2[key])) {
+    if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
-    } else if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
-      if (!eqArrays(object1[key], object2[key])) {
+    } else if (typeof object1[key] === 'object' && typeof object2[key] === 'object') {
+      if (!eqObjects(object1[key], object2[key])) {
         return false;
       }
     } else if (object1[key] !== object2[key]) {
